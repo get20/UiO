@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #e9c46a;
+  }
+
+  .country{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+    background-color: #264653;
+    height: 50px;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  
+  
+  .h1Title {
+    color: #e9c46a;
+  }
+  
+  .main-content {
+    max-width: 80%;
+  }
+  
+  
