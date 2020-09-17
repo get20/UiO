@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
     <header class="header">
-      <h1 class="h1itle">Countries</h1>
+      <h1 class="headerTitle">Countries</h1>
     </header>
     <input id="input" type="text" placeholder="Country">
-    <button onclick="addCountryList()">Add</button>
+    <button onclick="addListElement()">Add</button>
     <input id="search" onkeyup="search()" type="text" placeholder="Search by name">
     <ul id="list">
     </ul>
-    <script src="./index.js"></script>
+    <footer class="footer">
+    </footer>
+    <script src="index.js"></script>
   </body>
 </html>

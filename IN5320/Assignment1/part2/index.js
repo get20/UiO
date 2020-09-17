@@ -1,18 +1,18 @@
-let allCountries = [];
-/*Function to  Access polulation API */
 async function getPopulation(country) {
     let response = await fetch (`https://d6wn6bmjj722w.population.io/1.0/population/${country}/today-and-tomorrow/`);
     let data = await response.json();
     return data;
 }
 
-/*Function to  access Countries API */
-async function getCountries() {
+let allCountries = [];
+
+
+async function getAllCountries() {
     let response = await fetch ('https://d6wn6bmjj722w.population.io/1.0/countries/');
     let test = await response.json();
     return test;
 }
-getCountries().then(test => {
+getAllCountries().then(test => {
     allCountries = test.countries;
 });
 
@@ -24,17 +24,16 @@ if(localStorage.getItem("names")){
 
 if(names.length > 0){
     names.forEach(element => {
-        rateCountryList((element));
+        createListElement(element);
     });
 }
 
-/*Function to  add new countries to a list */
-function addCountryList(){
+function addListElement(){
     let input = document.getElementById("input").value;
     
     if(allCountries.includes(input)){
         if(input != '' && !names.includes(input)){
-            rateCountryList(input);
+            createListElement(input);
             names.push(input);
             localStorage.setItem("names", JSON.stringify(names));
         }else{
@@ -46,28 +45,23 @@ function addCountryList(){
     document.getElementById("input").value = '';
 }
 
-/*Function to  remove countries from a list */
-function removeCountryList(name){
+function removeListElement(name){
     document.getElementById(name).remove();
     names = names.filter(e => e !== name);
     localStorage.setItem("names", JSON.stringify(names));
     countryInterval.delete(name)
 }
 
-/*Function to search countries with a starting character */
-function removeCountryList(name){
-function doesCountryStartWith(element, searchWord){
+function doesElementStartWith(element, searchWord){
     if(element.startsWith(searchWord)) return true;
     return false;
 }
 
-/*Function to  search countries from a list */
-function removeCountryList(name){
 function search(){
     let searchWord = document.getElementById('search').value;
-    let filtered = names.filter(country => doesCountryStartWith(country, searchWord))
+    let filtered = names.filter(country => doesElementStartWith(country, searchWord))
     ul = document.getElementById("list");
-    li = ul.getCountriesByTagName('li');
+    li = ul.getElementsByTagName('li');
     for (i = 0; i < li.length; i++) {
         if(filtered.includes(li[i].id)){
             li[i].style.display = "";
@@ -78,7 +72,7 @@ function search(){
 }
 
 
-function rateCountryList(countryName){
+function createListElement(countryName){
     let li = document.createElement('li');
     li.className="country"
     let liste = document.getElementById("list");
@@ -90,7 +84,7 @@ function rateCountryList(countryName){
     li.id = countryName;
     p.innerHTML = countryName;
     button.innerHTML = "X";
-    button.setAttribute("onclick","removeCountryList(this.id)");
+    button.setAttribute("onclick","removeListElement(this.id)");
     button.id = countryName;
     li.appendChild(p);
     li.appendChild(populationNumber);
@@ -119,4 +113,4 @@ function findPopulation(){
     })
 }
 
-setInterval(findPopulation, 500);
+setInterval(findPopulation, 1000);
