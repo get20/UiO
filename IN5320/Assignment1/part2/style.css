@@ -23,90 +23,10 @@ body {
   padding: 20px;
 }
 
-.footer {
-  background-color: #264653;
-  height: 300px;
-  min-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.header {
-  height: 80px;
-  background-color: #264653;
-  min-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.headerTitle {
+.h1Title {
   color: #e9c46a;
 }
 
 .main-content {
   max-width: 80%;
-}
-
-.links{
-  margin: 0 30px;
-  text-decoration: none;
-  color: white; 
-  width: 150px;
-  background-color: #2a9d8f;
-  height: 70px;
-  border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.project:hover,
-.links:hover{
- background-color: #264653;
- color: #2a9d8f;
-}
-
-.projects {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.project {
-  max-width: 250px;
-  max-height: 250px;
-  background-color: #2a9d8f;
-  color: white;
-  margin: 40px;
-  padding: 40px;
-  overflow: hidden;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-}
-
-.person{
-  margin: 100px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-@media screen and (max-width: 900px){
-  .person{
-    flex-direction: column;
-  }
-  .main-content{
-    max-width: 95%;
-  }
 }
